@@ -49,9 +49,10 @@ def dataset_summary(df):
 
 def print_summary(df, label="Dataset"):
     info = dataset_summary(df)
-    print(f"\n{'='*50}")
+    sep = "=" * 50
+    print(f"\n{sep}")
     print(f"  {label} Summary")
-    print(f"{'='*50}")
+    print(f"{sep}")
     print(f"  Rows:        {info['rows']:,}")
     print(f"  Columns:     {info['columns']}")
     print(f"  Missing:     {info['missing_pct']}%")
@@ -62,7 +63,7 @@ def print_summary(df, label="Dataset"):
         print(f"  Date Range:  {dates.min().date()} to {dates.max().date()}")
     if "ticket_id" in df.columns:
         print(f"  Tickets:     {df['ticket_id'].nunique():,}")
-    print(f"{'='*50}\n")
+    print(f"{sep}\n")
 
 
 def ensure_directory(path):

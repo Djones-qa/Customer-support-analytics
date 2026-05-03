@@ -23,9 +23,10 @@ def compute_metrics(y_true, y_pred, labels=None):
 
 
 def print_classification_report(y_true, y_pred, label_names=None, model_name="Model"):
-    print(f"\n{'='*55}")
+    sep = "=" * 55
+    print(f"\n{sep}")
     print(f"  {model_name} - Classification Report")
-    print(f"{'='*55}")
+    print(f"{sep}")
     print(classification_report(y_true, y_pred, target_names=label_names, zero_division=0))
 
 
