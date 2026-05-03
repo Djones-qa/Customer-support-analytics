@@ -1,0 +1,73 @@
+﻿project:
+  name: "Customer Support Analytics"
+  version: "1.0.0"
+  author: "Darrius Jones"
+  description: "Ticket analysis, resolution trends, and agent performance analytics"
+
+data:
+  raw_dir: "data/raw"
+  processed_dir: "data/processed"
+  external_dir: "data/external"
+  ticket_id_column: "ticket_id"
+  date_column: "created_at"
+  resolved_column: "resolved_at"
+  category_column: "category"
+  priority_column: "priority"
+  status_column: "status"
+  agent_column: "agent_id"
+  channel_column: "channel"
+  satisfaction_column: "csat_score"
+
+channels:
+  - Email
+  - Chat
+  - Phone
+  - Web Form
+  - Social Media
+
+priorities:
+  - Critical
+  - High
+  - Medium
+  - Low
+
+statuses:
+  - Open
+  - In Progress
+  - Pending Customer
+  - Escalated
+  - Resolved
+  - Closed
+
+categories:
+  - Billing
+  - Technical Support
+  - Account Access
+  - Product Inquiry
+  - Returns & Refunds
+  - Shipping
+  - Bug Report
+  - Feature Request
+
+sla:
+  critical_hours: 4
+  high_hours: 8
+  medium_hours: 24
+  low_hours: 72
+  first_response_target_hours: 1
+
+model:
+  test_size: 0.2
+  random_state: 42
+  cv_folds: 5
+  algorithms:
+    - logistic_regression
+    - random_forest
+    - gradient_boosting
+    - xgboost
+
+visualization:
+  style: "seaborn-v0_8-whitegrid"
+  palette: "Set2"
+  figure_dpi: 150
+  output_dir: "visualizations/output"
