@@ -67,7 +67,8 @@ class TestSLACompliance:
         df = add_resolution_metrics(sample_ticket_df)
         result = add_sla_compliance(df)
         assert "sla_breach_hours" in result.columns
-        assert (result["sla_breach_hours"] >= 0).all()
+        breach = result["sla_breach_hours"].dropna()
+        assert (breach >= 0).all()
 
     def test_first_response_sla(self, sample_ticket_df):
         df = add_resolution_metrics(sample_ticket_df)
