@@ -3,7 +3,6 @@ preprocessing.py - Ticket data cleaning, datetime parsing, status normalization.
 """
 
 import pandas as pd
-import numpy as np
 
 
 def parse_datetime_columns(df, columns=None):

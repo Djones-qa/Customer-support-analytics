@@ -3,7 +3,6 @@ satisfaction_analysis.py - CSAT trends and drivers.
 """
 
 import pandas as pd
-import numpy as np
 
 
 def csat_summary(df, score_col="csat_score"):
@@ -26,7 +25,12 @@ def csat_by_dimension(df, dimension, score_col="csat_score"):
     """Average CSAT grouped by a dimension (category, channel, agent, etc.)."""
     if dimension not in df.columns or score_col not in df.columns:
         return pd.DataFrame()
-    return df.groupby(dimension)[score_col].agg(["mean","median","count"]).round(2).sort_values("mean", ascending=False)
+    return (
+        df.groupby(dimension)[score_col]
+        .agg(["mean", "median", "count"])
+        .round(2)
+        .sort_values("mean", ascending=False)
+    )
 
 
 def csat_trend(df, score_col="csat_score", date_col="created_at", freq="M"):
@@ -35,7 +39,7 @@ def csat_trend(df, score_col="csat_score", date_col="created_at", freq="M"):
         return pd.DataFrame()
     df = df.copy()
     df["period"] = pd.to_datetime(df[date_col]).dt.to_period(freq)
-    return df.groupby("period")[score_col].agg(["mean","count"]).round(2)
+    return df.groupby("period")[score_col].agg(["mean", "count"]).round(2)
 
 
 def csat_vs_resolution_time(df, score_col="csat_score"):

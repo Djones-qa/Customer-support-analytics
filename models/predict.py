@@ -3,7 +3,6 @@ predict.py - Load saved model and classify new tickets.
 """
 
 import pandas as pd
-import numpy as np
 import joblib
 from glob import glob
 

@@ -6,6 +6,7 @@ import pandas as pd
 import numpy as np
 import joblib
 import os
+import sys
 from datetime import datetime
 from pathlib import Path
 from sklearn.model_selection import train_test_split, cross_val_score, StratifiedKFold
@@ -13,10 +14,9 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
 from sklearn.preprocessing import LabelEncoder, StandardScaler
 from sklearn.pipeline import Pipeline
-from sklearn.metrics import classification_report, accuracy_score, f1_score
-import sys
+from sklearn.metrics import accuracy_score, f1_score
 sys.path.append(str(Path(__file__).parent.parent))
-from src.utils import load_config
+from src.utils import load_config  # noqa: E402
 
 
 def prepare_features(df, config=None):

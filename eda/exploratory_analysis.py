@@ -3,7 +3,6 @@ exploratory_analysis.py - Automated EDA for support ticket data.
 """
 
 import pandas as pd
-import numpy as np
 
 
 def ticket_volume_summary(df, date_col="created_at"):

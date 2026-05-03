@@ -3,7 +3,6 @@ agent_performance.py - Agent productivity and quality metrics.
 """
 
 import pandas as pd
-import numpy as np
 
 
 def agent_productivity(df, agent_col="agent_id"):

@@ -47,8 +47,10 @@ def add_temporal_features(df, date_col="created_at"):
     df["created_hour"] = dt.dt.hour
     df["created_quarter"] = dt.dt.quarter
     df["is_weekend"] = dt.dt.dayofweek.ge(5).astype(int)
-    df["is_business_hours"] = ((dt.dt.hour >= 9) & (dt.dt.hour < 17) &
-                                (dt.dt.dayofweek < 5)).astype(int)
+    df["is_business_hours"] = (
+        (dt.dt.hour >= 9) & (dt.dt.hour < 17)
+        & (dt.dt.dayofweek < 5)
+    ).astype(int)
     df["day_name"] = dt.dt.day_name()
     return df
 
